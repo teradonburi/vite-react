@@ -24,13 +24,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-	  # このように追記します
-      - uses: pnpm/action-setup@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          # 必要に応じて pnpm のバージョンを変更してください
           version: 9.10.0
-      - run: pnpm i --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
   # デプロイするだけなので、単一のデプロイジョブ
   deploy:
     environment:
