@@ -1,12 +1,13 @@
 import { resolve } from "node:path";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	base: "./",
 	root: "src",
-	plugins: [vanillaExtractPlugin()],
+	plugins: [react(), vanillaExtractPlugin()],
 	publicDir: resolve(__dirname, "public"),
 	build: {
 		// distフォルダに出力
