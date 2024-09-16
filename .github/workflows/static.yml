@@ -31,7 +31,7 @@ jobs:
         with:
           version: 9.10.0
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm i --frozen-lockfile & pnpm build
   # デプロイするだけなので、単一のデプロイジョブ
   deploy:
     environment:
